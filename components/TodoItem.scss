@@ -1,0 +1,89 @@
+.TodoItem{
+
+    background-color: antiquewhite;
+    //3개의 영역이 옆으로 높이도록 배치하기 위해 ..flex style..
+    display: flex;
+    flex-direction: row;
+    align-items: center; //세로축 가운데 정렬
+
+    padding: 1rem;
+
+    //짝수줄을 다른 색상의 배경 - 색이 너무 많아 정신없음. 
+    // &:nth-child(even){
+    //     background-color: azure;
+    //     background-color: bisque;
+    // }
+
+    //hover된 아이템 색상 변경
+    &:hover{
+        background-color: bisque;
+    }
+
+    .checkbox{
+        //아이콘 SVG 이미지는 글씨속성으로 모양스타일 지정가능. 
+        font-size: 14px;
+
+        //아이콘 위치가 살짝 세로 가운데가 맞지 않는듯 하여..
+        display: flex;
+        align-items: center;
+
+        // border: 1px dotted red;
+        padding: 2px;
+    }
+
+    .content{
+        // 체크박스와 제거버튼 아이콘을 제외한 모든 영역으로 너비를 지정하기 [ flex-grow의 축약 ]
+        flex: 1;
+
+        // 왼쪽과 너무 붙어 있는 듯 하여
+        margin-left: 1rem;
+    }
+
+    .delete{
+        //아이콘 SVG 이미지는 글씨속성으로 모양스타일 지정가능. - 아이콘의 원래 크기에 따라 크기값을 각자 달라질 수 있음.
+        font-size: 20px;
+        color: red;
+
+        //커서모양을 손가락으로..
+        cursor: pointer;
+
+        //아이콘 위치가 살짝 세로 가운데가 맞지 않는듯 하여..
+        display: flex;
+        align-items: center;
+
+        // border: 1px dotted red;
+        padding: 2px;
+    }
+
+    // TodoItem 컴포넌트의 바로 다음에 오는 TodoItem 컴포넌트에게 스타일적용 - 위쪽 경계선 그려주기  + 기호 [다음 요소]
+    & + & {
+        border-top: 1px solid wheat;
+    }
+    //--------- 일단 여기까지 스타일 적용. ----------------
+
+    // 기능구현 후..체크상태 반영 스타일링 추가 작업...
+
+    // 제작개요 10 에서 추가..
+    // .TodoItem 클래스선택자와 함께 isDone 클래스 선택자까지 적용된 스타일...
+    &.isDone{
+        // color: blue;
+
+        // 자손요소 중 SVG 아이콘 색상은 오렌지계열
+        .checkbox{
+            color: orange;
+        }
+
+        // 자손요소 중 콘텐츠 글씨는 회색 및 취소선
+        .content{
+            color: gray;
+            text-decoration: line-through;
+        }
+
+    }
+    // ---------- 스타일 작업은 일단 완료.. -----------------------------
+
+    // --- 이제 todo 데이터 추가/제거/수정 등의 기능작업 만들기 ---------------
+
+
+}
+

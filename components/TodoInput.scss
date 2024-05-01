@@ -1,0 +1,51 @@
+.TodoInput{
+    // input요소와 button요소의 배치를 flex 스타일로 적용.- 비율적으로 크기 설정 가능 [button영역을 제외한 나머지 영역만큼 input요소의 너비를 지정]
+    display: flex;
+    flex-direction: row;
+
+    // 자손선택자 [ SCSS 의 주요특징. {}영역으로 그룹단위 스타일 적용이 용이함.
+    input{
+        flex: 1; //버튼을 제외한 모든 영역으로 너비를 지정하기 위해 flex-grow 지정(축약 flex) [안드로이드의 weight같은 속성]
+        padding: 1rem;
+        // 경계선 때문에 약간 중첩으로 보이니..
+        border: none;
+        // focus를 받았을때 아웃라인이 그려지는 것이 그닥 이쁘지 않아서
+        outline: none;
+        font-size: 1.15rem;
+
+        // & 현재선택자 참조기호를 이용하여 힌트속성을 참조하여 색상 지정
+        &::placeholder{
+            color: darkgoldenrod;
+        }
+    }
+
+    // 등록버튼 스타일
+    button{
+        //경계선 제거
+        border: none;
+        background-color: orange;
+        // SVG 아이콘은 그림처럼 보이지만 .. 글씨로 그림을 그린 벡터그래픽이이서 글씨스타일을 주면 아이콘모양에 영향을 줌
+        color: white;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        //마우스를 올리면 눌러진다는 느낌을 주기 위해 커서모양을 손가락모양 으로 지정
+        cursor: pointer;
+
+        //아주 살짝 세로축 가운데가 안맞아 보여서 flex스타일로 세로 정렬.
+        display: flex;
+        align-items: center;
+
+        //hover, active에 대한 스타일..
+        &:hover {
+            background-color: orangered;
+        }
+        &:active {
+            background-color: red;
+        }
+
+        //마우스 이벤트에 의한 배경색 전환효과 적용
+        transition: background-color .5s;        
+    }
+
+}

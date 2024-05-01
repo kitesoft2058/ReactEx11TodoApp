@@ -1,0 +1,24 @@
+/* 아웃라인 박스 스타일 [클래스 선택자 활용]*/
+.TodoContainer{
+    width: 500px;
+    margin: 5rem auto; /* 위아래 마진 및 가운데 배치 */
+    border: 1px solid black;
+    border-radius: 6px;
+    // 자식요소나 부모의 radius를 벗어나서 그려질 수 있기에..
+    overflow: hidden;
+
+    .app-title{
+        background-color: wheat;
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+        height: 5rem;
+        
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+}
